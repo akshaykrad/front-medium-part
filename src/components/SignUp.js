@@ -1,14 +1,17 @@
 import { Formik } from 'formik'
 import React from 'react'
 import * as yup from "yup";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
 
-	// const navigate = useNavigate();
+	const navigate = useNavigate();
 
-	const loginBtn = () =>{
-		// navigate("/login")
+	const home = () =>{
+		navigate("/")
+	}	
+	const signIn = () =>{
+		navigate("/signin")
 	}	
 
 	const SignUpSchema = yup.object().shape({
@@ -20,6 +23,8 @@ export default function SignUp() {
   return (
 	
 	<div className='container mt-4'>
+		<button className='btn mb-4 btn-info'onClick={home}>Home</button>
+		<button className='btn ms-2 mb-4 btn-info'onClick={signIn}>Sign Ip</button>
 		<h3>Sign Up</h3>
 		<Formik
 			initialValues={{
@@ -30,7 +35,7 @@ export default function SignUp() {
 			}}
 			validationSchema={SignUpSchema}
 			onSubmit={(values ,{ resetForm })=>{
-				console.log(values);
+				console.log(values.email);
 				resetForm();
 			}}
 		>
@@ -108,7 +113,7 @@ export default function SignUp() {
 
 			)}
 		</Formik>
-		<button className='btn mt-4 btn-success'onClick={loginBtn}>Go to Sign In Page</button>
+		
 		
 	</div>
   )

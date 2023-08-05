@@ -6,9 +6,6 @@ export default function AllUsers() {
 	<div>
 		<h1 className='mx-4 mt-2'>All Users</h1>
 		<UsersCard />
-		<UsersCard />
-		<UsersCard />
-		<UsersCard />
 	</div>
   )
 }

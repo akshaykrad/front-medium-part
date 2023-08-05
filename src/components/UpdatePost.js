@@ -1,23 +1,24 @@
-// import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Formik } from 'formik'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
-export default function AddPost() {
-
-
+export default function UpdatePost() {
+	const location = useLocation()
+	const data = location.state.item
+	console.log(data)
 
   return (
-    <div className='container mt-4'>
-		<h3>Add New Post</h3>
+	<div className='container mt-4'>
+		<h3>Update Post</h3>
 		<Formik
 			initialValues={{
-				title:'',
-				topic:'',
-				imageUrl:'',
-				body:'',
-				author:'',
-				date: new Date(),
-				id:Math.random().toString(16).slice(2),
+				title:`${data.title}`,
+				topic:`${data.topic}`,
+				imageUrl:`${data.imageUrl}`,
+				body:`${data.body}`,
+				author:`${data.author}`,
+				date: `${new Date(data.date)}`,
+				id:`${data.id}`,
 			}}
 			onSubmit={(values ,{ resetForm })=>{
 				// setPosts(prev =>{
@@ -72,7 +73,7 @@ export default function AddPost() {
 						<textarea
 							type='text'
 							name='content'
-							value={values.content}
+							value={values.body}
 							onChange={handleChange}
 							onBlur={handleBlur}
 							className={`form-control input-sm w-25`}
@@ -83,14 +84,14 @@ export default function AddPost() {
 						<input
 							type='text'
 							name='author'
-							value={values.content}
+							value={values.author}
 							onChange={handleChange}
 							onBlur={handleBlur}
 							className={`form-control input-sm w-25`}
 							placeholder='Author name'
 							/>
 					</div>
-					<button className='btn btn-success mt-4' type='submit'>Add Post</button><br/>
+					<button className='btn btn-success mt-4' type='submit'>Update Post</button><br/>
 				</form>
 
 

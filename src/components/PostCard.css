@@ -1,0 +1,58 @@
+.author-date{
+	display: flex;
+	justify-content: space-between;
+}
+
+.title{
+	margin: 10px 0;
+	font-weight: 700;
+}
+.features{
+	display: flex;
+	justify-content: space-between;
+}
+.main-features{
+	cursor: pointer;
+}
+.tags{
+	background-color: gray;
+	padding: 4px;
+	border-radius: 8px;
+}
+.card-click{
+	cursor: pointer;
+}
+
+
+.search{
+	background-color: #f3f3f3;
+	outline: none;
+	border: none;
+	padding: 5px;
+	border-radius: 20px;
+}
+
+.med-logo{
+	width: 40px;
+	height: 40px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+.profile{
+	height: 400px;
+	background-color: yellow;
+}
+
+.user-img{
+	cursor: pointer;
+}
+.write{
+	cursor: pointer;
+}
+
+.card-container{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
