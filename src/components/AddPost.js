@@ -1,6 +1,7 @@
 // import React, { useEffect, useState } from 'react'
 import { Formik } from 'formik'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 export default function AddPost() {
 
@@ -23,7 +24,16 @@ export default function AddPost() {
 				// setPosts(prev =>{
 				// 	return([...prev,values])
 				// })
-				console.log(values)
+				const newObject = {title:values.title,description:values.content}
+				console.log(newObject)
+
+				axios.post("http://127.0.0.1:3000/api/v1/articles/new",newObject)
+				.then((res)=>{
+					console.log(res.data)
+				})
+				.catch((error) => {
+					console.error('Error:', error);
+				});
 			}}
 		>
 			{({
@@ -83,7 +93,7 @@ export default function AddPost() {
 						<input
 							type='text'
 							name='author'
-							value={values.content}
+							value={values.author}
 							onChange={handleChange}
 							onBlur={handleBlur}
 							className={`form-control input-sm w-25`}

@@ -12,7 +12,7 @@ export default function PostList(props) {
 	
 	const handleReadMore = (e) =>{
 		console.log(e)
-		const item = props.postDataa[e]
+		const item = props.postData[e]
 		navigate(`/readmore/${e}`,{state:{ item }})
 	}
 
@@ -20,7 +20,7 @@ export default function PostList(props) {
 	<div>
 
 		{
-			props.postDataa.map((data)=>{
+			props.postData.map((data)=>{
 				return(
 					<PostCard data={data} handleReadMore={handleReadMore} valid={props.valid}/>
 				)

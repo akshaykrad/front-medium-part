@@ -2,6 +2,7 @@ import { Formik } from 'formik'
 import React from 'react'
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 export default function SignUp() {
 
@@ -36,7 +37,12 @@ export default function SignUp() {
 			validationSchema={SignUpSchema}
 			onSubmit={(values ,{ resetForm })=>{
 				console.log(values.email);
-				resetForm();
+				const newObject = {name:values.name,email:values.email,password:values.password}
+				// resetForm();
+				axios.post("http://127.0.0.1:3000/api/v1/signup",newObject)
+				.then((res)=>{
+					console.log(res.data)
+				})
 			}}
 		>
 			{({

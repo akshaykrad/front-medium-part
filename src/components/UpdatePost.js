@@ -1,6 +1,7 @@
 import React from 'react'
 import { Formik } from 'formik'
 import { useLocation, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 export default function UpdatePost() {
 	const location = useLocation()
@@ -15,7 +16,7 @@ export default function UpdatePost() {
 				title:`${data.title}`,
 				topic:`${data.topic}`,
 				imageUrl:`${data.imageUrl}`,
-				body:`${data.body}`,
+				body:`${data.description}`,
 				author:`${data.author}`,
 				date: `${new Date(data.date)}`,
 				id:`${data.id}`,
@@ -24,6 +25,14 @@ export default function UpdatePost() {
 				// setPosts(prev =>{
 				// 	return([...prev,values])
 				// })
+				const newObject = {title:values.title,description:values.body}
+				axios.put(`http://127.0.0.1:3000/api/v1/articles/${values.id}/edit1`,newObject)
+				.then((res)=>{
+					console.log(res.data)
+				})
+				.catch((error) => {
+					console.error('Error:', error);
+				});
 				console.log(values)
 			}}
 		>
