@@ -25,7 +25,7 @@ export default function SignUp() {
 	
 	<div className='container mt-4'>
 		<button className='btn mb-4 btn-info'onClick={home}>Home</button>
-		<button className='btn ms-2 mb-4 btn-info'onClick={signIn}>Sign Ip</button>
+		<button className='btn ms-2 mb-4 btn-info'onClick={signIn}>Sign In</button>
 		<h3>Sign Up</h3>
 		<Formik
 			initialValues={{

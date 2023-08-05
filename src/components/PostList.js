@@ -12,7 +12,7 @@ export default function PostList(props) {
 	
 	const handleReadMore = (e) =>{
 		console.log(e)
-		const item = props.postData[e]
+		const item = props.postData[e-1]
 		navigate(`/readmore/${e}`,{state:{ item }})
 	}
 

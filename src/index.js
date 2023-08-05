@@ -19,6 +19,7 @@ import UpdatePost from './components/UpdatePost';
 import AllUsers from './components/AllUsers';
 import RecommendedPosts from './components/RecommendedPosts';
 import SimilarAuthor from './components/SimilarAuthor';
+import Topics from './components/Topics';
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
   {
     path:'/recom',
     element:<SimilarAuthor />
+  },
+  {
+    path:'/alltopics',
+    element:<Topics />
   },
 ]);
 

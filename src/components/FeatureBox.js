@@ -16,12 +16,18 @@ export default function FeatureBox(props) {
 		props.handleReset()
 	}
 
+
+
   return (
 	<div className='ms-4'>
 		<label>Filter</label>
 		<input value={ftext} onChange={handleFtext}/>
-		<button className='m-1' onClick={findClick}>Find</button>
-		<button className='m-1' onClick={reset}>Reset</button>
+		<button className='m-1 btn border border-primary' onClick={findClick}>Find</button>
+		<button className='m-1 btn border border-primary' onClick={reset}>Reset</button>
+		<br />
+		<label>Sort by </label>
+		<button className='btn m-1 border border-primary' onClick={props.sortbyLikes}>Likes</button>
+		<button className='btn m-1 border border-primary' onClick={props.sortbyComments}>Comment</button>
 	</div>
   )
 }

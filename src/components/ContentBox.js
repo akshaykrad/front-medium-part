@@ -26,13 +26,13 @@ export default function ContentBox(props) {
 	//http://127.0.0.1:3000/login (post)                   ()
 	//http://127.0.0.1:3000/logout (delete)                ()
 	//http://127.0.0.1:3000/showArticle?id=1 (get)         (DONE)(WORKING)
-	//http://127.0.0.1:3000/sortByLike (get)               (DONE)
-	//http://127.0.0.1:3000/sortByComment (get)            (DONE)
-	//http://127.0.0.1:3000/userSearch?s= (get)            (DONE)
+	//http://127.0.0.1:3000/sortByLike (get)               (DONE)(WORKING)
+	//http://127.0.0.1:3000/sortByComment (get)            (DONE)(WORKING)
+	//http://127.0.0.1:3000/userSearch?s= (get)            (DONE)(WORKING)
 	//http://127.0.0.1:3000/articleSearch?s= (get)         (DONE)
 	//http://127.0.0.1:3000/topicSearch?s= (get)           (DONE)
-	//http://127.0.0.1:3000/topArticles (get)              (DONE)
-	//http://127.0.0.1:3000/similarArticles?id=5           (DONE)
+	//http://127.0.0.1:3000/topArticles (get)              (DONE)(WORKING)
+	//http://127.0.0.1:3000/similarArticles?id=5           (DONE)(WORKING)
 	//http://127.0.0.1:3000/listTopic                      (DONE)
 
 	
@@ -49,9 +49,7 @@ export default function ContentBox(props) {
 	const getPostCardData = async () => {
 		const res = await fetch("http://192.168.0.102:3000/articles");
 		const data = await res.json();
-		// append new data after old data 
 		setPostData((prev) => [...prev, ...data]);
-		// console.log(data)
 	}
 
 	// get data from hook
@@ -63,12 +61,6 @@ export default function ContentBox(props) {
 
 	const navigate = useNavigate()
 
-	const onSignIn = () =>{
-		navigate('/signin')
-	}
-	const onSignUp = () =>{
-		navigate('/signup')
-	}
 
 
 	const handleFilter = (query) =>{
@@ -86,8 +78,10 @@ export default function ContentBox(props) {
 
 	}
 	const handleReset = () =>{
-		setPostData(prevData)
+		// setPostData(prevData)
+		console.log(prevData)
 	}
+
 	useEffect(() => {
 		window.addEventListener("scroll", handleinfinitescroll);
 	}, []);
@@ -109,11 +103,30 @@ export default function ContentBox(props) {
 		window.addEventListener("scroll", handleinfinitescroll);
 		return () => window.removeEventListener("scroll", handleinfinitescroll);
 	}, []);
+
+	const sortbyLikes = () =>{
+		axios.get("http://127.0.0.1:3000/sortByLike")
+		.then((res)=>{
+			setPostData(prev=>{
+				setPrevData(prev)
+				return(res.data)
+			})
+		})
+	}
+	const sortbyComments = () =>{
+		axios.get("http://127.0.0.1:3000/sortByComment")
+		.then((res)=>{
+			setPostData(prev=>{
+				setPrevData(prev)
+				return(res.data)
+			})
+		})
+	}
 	
 
   return (
 	<div className='m-2 '>
-		<FeatureBox handleFilter={handleFilter} handleReset={handleReset}/>
+		<FeatureBox handleFilter={handleFilter} handleReset={handleReset} sortbyLikes={sortbyLikes} sortbyComments={sortbyComments}/>
 		<PostList postData={postData} valid={props.valid}/>
 	</div>
   )
