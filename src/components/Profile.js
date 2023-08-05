@@ -37,7 +37,7 @@ export default function Profile() {
 			<FollowButton />
 		</div>
 	</div>
-	<h2 className='ms-4 fw-bold mb-2 mt-5'>All articles by you</h2>
+	<h2 className='ms-4 fw-bold mb-2 mt-5'>All articles by {data.username}</h2>
 	{/* <ContentBox valid={true}/> */}
 	<PostList postData={postData} valid={true}/>
   </>

@@ -14,30 +14,6 @@ export default function ContentBox(props) {
 	const [prevData , setPrevData] = useState([])
 	const [page, setPage] = useState(1);
 
-	//http://127.0.0.1:3000/articles (get)                 (DONE)(WORKING)
-	//http://127.0.0.1:3000/users (get)                    (DONE)(WORKING)           
-	//http://127.0.0.1:3000/articles/id/edit (put)         ()
-	//http://127.0.0.1:3000/articles/new (post)            ()
-	//http://127.0.0.1:3000/articles/id (delete method)    ()
-	//http://127.0.0.1:3000/signup (post request)          ()
-	//http://127.0.0.1:3000/users (post)                   ()
-	//http://127.0.0.1:3000/users/id  (get)                (DONE)(WORKING)
-	//http://127.0.0.1:3000/users/id  (delete)             ()
-	//http://127.0.0.1:3000/login (post)                   ()
-	//http://127.0.0.1:3000/logout (delete)                ()
-	//http://127.0.0.1:3000/showArticle?id=1 (get)         (DONE)(WORKING)
-	//http://127.0.0.1:3000/sortByLike (get)               (DONE)(WORKING)
-	//http://127.0.0.1:3000/sortByComment (get)            (DONE)(WORKING)
-	//http://127.0.0.1:3000/userSearch?s= (get)            (DONE)(WORKING)
-	//http://127.0.0.1:3000/articleSearch?s= (get)         (DONE)
-	//http://127.0.0.1:3000/topicSearch?s= (get)           (DONE)
-	//http://127.0.0.1:3000/topArticles (get)              (DONE)(WORKING)
-	//http://127.0.0.1:3000/similarArticles?id=5           (DONE)(WORKING)
-	//http://127.0.0.1:3000/listTopic                      (DONE)
-
-	
-	
-
 
 	useEffect(()=>{
 		axios.get("http://127.0.0.1:3000/articles")
